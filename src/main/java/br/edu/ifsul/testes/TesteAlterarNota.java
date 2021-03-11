@@ -21,7 +21,7 @@ import javax.persistence.Persistence;
  *
  * @author eliel
  */
-public class TestePersistirNota {
+public class TesteAlterarNota {
 
     /**
      * @param args the command line arguments
@@ -30,13 +30,9 @@ public class TestePersistirNota {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("FaculdadeModelPU");
         EntityManager em = emf.createEntityManager();
         
-        Nota n = new Nota();
-        n.setAluno(em.find(Aluno.class, 1));
-        n.setNota01(9.1);
-        n.setNota02(7.4);
-        n.setMedia(n.calculaMedia());
-        n.setDisciplina(em.find(Disciplina.class, 1));
-        
+        Nota n = em.find(Nota.class, 1);
+        n.setDisciplina(em.find(Disciplina.class, n));
+                
         em.getTransaction().begin();
         em.persist(n);
         em.getTransaction().commit();

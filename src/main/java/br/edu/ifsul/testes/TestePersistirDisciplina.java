@@ -9,7 +9,6 @@ import br.edu.ifsul.modelo.Aluno;
 import br.edu.ifsul.modelo.Curso;
 import br.edu.ifsul.modelo.Disciplina;
 import br.edu.ifsul.modelo.Especialidade;
-import br.edu.ifsul.modelo.Instituicao;
 import br.edu.ifsul.modelo.Nota;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -21,7 +20,7 @@ import javax.persistence.Persistence;
  *
  * @author eliel
  */
-public class TestePersistirNota {
+public class TestePersistirDisciplina {
 
     /**
      * @param args the command line arguments
@@ -30,15 +29,16 @@ public class TestePersistirNota {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("FaculdadeModelPU");
         EntityManager em = emf.createEntityManager();
         
-        Nota n = new Nota();
-        n.setAluno(em.find(Aluno.class, 1));
-        n.setNota01(9.1);
-        n.setNota02(7.4);
-        n.setMedia(n.calculaMedia());
-        n.setDisciplina(em.find(Disciplina.class, 1));
+        Disciplina d = new Disciplina();
+        d.getAlunos().add(em.find(Aluno.class, 1));
+        d.setCargaHoraria(140.0);
+        d.setConhecimentosMinimos("Programação básica");
+        d.setCurso(em.find(Curso.class, 1));
+        d.setDescricao("Você aprenderá a criar projetos utilizando Java e Postgres.");
+        d.setNome("Programação Web");
         
         em.getTransaction().begin();
-        em.persist(n);
+        em.persist(d);
         em.getTransaction().commit();
         em.close();
         emf.close();

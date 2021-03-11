@@ -6,6 +6,9 @@
     <class>br.edu.ifsul.modelo.Aluno</class>
     <class>br.edu.ifsul.modelo.Instituicao</class>
     <class>br.edu.ifsul.modelo.Professor</class>
+    <class>br.edu.ifsul.modelo.Curso</class>
+    <class>br.edu.ifsul.modelo.Disciplina</class>
+    <class>br.edu.ifsul.modelo.Nota</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/Faculdade"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

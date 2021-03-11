@@ -46,6 +46,11 @@ public class Nota implements Serializable {
     @JoinColumn(name = "aluno", referencedColumnName = "id", nullable = false)
     private Aluno aluno;
     
+    @NotNull(message = "A disciplina deve ser informada.")
+    @ManyToOne
+    @JoinColumn(name = "disciplina", referencedColumnName = "id", nullable = false)
+    private Disciplina disciplina;
+    
     public Nota(){
         
     }
@@ -93,6 +98,15 @@ public class Nota implements Serializable {
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+    
 
     @Override
     public int hashCode() {
