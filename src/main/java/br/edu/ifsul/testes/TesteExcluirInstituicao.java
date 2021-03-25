@@ -5,8 +5,7 @@
  */
 package br.edu.ifsul.testes;
 
-import br.edu.ifsul.modelo.Aluno;
-import br.edu.ifsul.modelo.Nota;
+import br.edu.ifsul.modelo.Instituicao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,7 +14,7 @@ import javax.persistence.Persistence;
  *
  * @author eliel
  */
-public class TesteAlterarNota {
+public class TesteExcluirInstituicao {
 
     /**
      * @param args the command line arguments
@@ -24,11 +23,10 @@ public class TesteAlterarNota {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("FaculdadeModelPU");
         EntityManager em = emf.createEntityManager();
         
-        Nota n = em.find(Nota.class, 1);
-        n.setAluno(em.find(Aluno.class, 1));
-                
+        Instituicao i = em.find(Instituicao.class, 1);
         em.getTransaction().begin();
-        em.persist(n);
+        em.remove(i);
+        
         em.getTransaction().commit();
         em.close();
         emf.close();

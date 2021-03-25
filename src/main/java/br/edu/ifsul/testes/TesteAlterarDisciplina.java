@@ -5,8 +5,7 @@
  */
 package br.edu.ifsul.testes;
 
-import br.edu.ifsul.modelo.Aluno;
-import br.edu.ifsul.modelo.Nota;
+import br.edu.ifsul.modelo.Disciplina;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,7 +14,7 @@ import javax.persistence.Persistence;
  *
  * @author eliel
  */
-public class TesteAlterarNota {
+public class TesteAlterarDisciplina {
 
     /**
      * @param args the command line arguments
@@ -24,11 +23,11 @@ public class TesteAlterarNota {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("FaculdadeModelPU");
         EntityManager em = emf.createEntityManager();
         
-        Nota n = em.find(Nota.class, 1);
-        n.setAluno(em.find(Aluno.class, 1));
+        Disciplina d = em.find(Disciplina.class, 1);
+        d.setNome("Programação Web");
                 
         em.getTransaction().begin();
-        em.persist(n);
+        em.persist(d);
         em.getTransaction().commit();
         em.close();
         emf.close();
