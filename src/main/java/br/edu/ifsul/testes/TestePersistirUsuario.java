@@ -5,7 +5,6 @@
  */
 package br.edu.ifsul.testes;
 
-import br.edu.ifsul.modelo.Curso;
 import br.edu.ifsul.modelo.Usuario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,7 +14,7 @@ import javax.persistence.Persistence;
  *
  * @author eliel
  */
-public class TesteAlterarCurso {
+public class TestePersistirUsuario {
 
     /**
      * @param args the command line arguments
@@ -24,11 +23,15 @@ public class TesteAlterarCurso {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("FaculdadeModelPU");
         EntityManager em = emf.createEntityManager();
         
-        Curso c = em.find(Curso.class, 4);
-        c.setDescricao("Teste");
-                
+        Usuario u = new Usuario();
+        u.setNome("Eliel Alves da Silva");
+        u.setNomeUsuario("eliel.a");
+        u.setSenha("123456");
+        u.setAtivo(true);
+        u.setEmail("elielalves.cc@gmail.com");
+        
         em.getTransaction().begin();
-        em.persist(c);
+        em.persist(u);
         em.getTransaction().commit();
         em.close();
         emf.close();

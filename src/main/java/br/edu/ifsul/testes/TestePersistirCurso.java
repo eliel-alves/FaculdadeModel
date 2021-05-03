@@ -8,6 +8,7 @@ package br.edu.ifsul.testes;
 import br.edu.ifsul.modelo.Curso;
 import br.edu.ifsul.modelo.Especialidade;
 import br.edu.ifsul.modelo.Instituicao;
+import br.edu.ifsul.modelo.Usuario;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.persistence.EntityManager;
@@ -31,9 +32,10 @@ public class TestePersistirCurso {
         c.setAtivo(Boolean.TRUE);
         c.setDescricao("Curso de Ciência da Computação do IFSUL");
         c.setInicioAtividades(Calendar.getInstance());
-        c.setInstituicao(em.find(Instituicao.class, 1));
+        c.setInstituicao(em.find(Instituicao.class, 3));
         c.setNome("Ciência da Computação");
         c.setSigla("CC");
+        c.setUsuario(em.find(Usuario.class, "eliel.a"));
         
         em.getTransaction().begin();
         em.persist(c);

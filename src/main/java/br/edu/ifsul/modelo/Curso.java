@@ -68,6 +68,11 @@ public class Curso implements Serializable {
     @JoinColumn(name = "instituicao", referencedColumnName = "id", nullable = false)
     private Instituicao instituicao;
     
+    @NotNull(message = "O usuário deve ser informado.")
+    @ManyToOne
+    @JoinColumn(name = "usuario", referencedColumnName = "nome_usuario", nullable = false)
+    private Usuario usuario;
+    
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL,
             orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Disciplina> disciplinas = new ArrayList<>();
@@ -147,6 +152,14 @@ public class Curso implements Serializable {
 
     public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
