@@ -5,6 +5,7 @@
  */
 package br.edu.ifsul.utilrelatorios;
 
+import br.edu.ifsul.modelo.Aluno;
 import br.edu.ifsul.modelo.Especialidade;
 import br.edu.ifsul.modelo.Professor;
 import java.util.ArrayList;
@@ -29,9 +30,23 @@ public class FabricaObjetos {
         e.setNome("Ser preguiçoso");
         p.setEspecialidade(e);
         p.setTitulacao("Doutorado");
-        p.setTopicosInteresse("<h1>ELIEL EH <strong>MUITO</strong> LINDO</h1><br><h1>ELIEL EH <strong>MUITO</strong> LINDO</h1><br><h1>ELIEL EH <strong>MUITO</strong> LINDO</h1><br><h1>ELIEL EH <strong>MUITO</strong> LINDO</h1><br><h1>ELIEL EH <strong>MUITO</strong> LINDO</h1><br>");
+        p.setTopicosInteresse("<h1>AQUI VAI UM TOPICO DE <strong>INTERESSE</strong></h1><br><h1>AQUI VAI UM TOPICO DE <strong>INTERESSE</strong></h1><br><h1>AQUI VAI UM TOPICO DE <strong>INTERESSE</strong></h1><br><h1>AQUI VAI UM TOPICO DE <strong>INTERESSE</strong></h1><br><h1>AQUI VAI UM TOPICO DE <strong>INTERESSE</strong></h1><br><h1>AQUI VAI UM TOPICO DE <strong>INTERESSE</strong></h1><br><h1>AQUI VAI UM TOPICO DE <strong>INTERESSE</strong></h1><br>");
         
         lista.add(p);
         return lista;
+    }
+    
+    public static List<Aluno> carregaAlunos() {
+        List<Aluno> listaAlunos = new ArrayList<>();
+        
+        Aluno a = new Aluno();
+        a.setNome("Elielzin Gameplays");
+        a.setId(1);
+        a.setNascimento(Calendar.getInstance());
+        a.setEmail("elielalves.cc@gmail.com");
+        
+        listaAlunos.add(a);
+        
+        return listaAlunos;
     }
 }
